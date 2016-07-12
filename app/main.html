@@ -1,0 +1,6 @@
+<div class="container" ng-controller="payeesController as payees">
+    <div class="row" ng-repeat="payee in payees.payees">
+        <div class="business-card" ng-include="payees.getTemplateUrl(payee)">
+        </div>
+    </div>
+</div>

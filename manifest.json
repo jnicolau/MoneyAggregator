@@ -1,0 +1,27 @@
+{
+  "manifest_version":2,
+  "name":"Facilitator",
+  "description":"For now it only reads Airtricity bills",
+  "version":"0.1",
+  "author": "Joao Oliveira",
+
+  "browser_action": {
+    "default_title": "Facilitator",
+    "default_icon": "icon.png"
+  },
+
+  "background": {
+    "scripts": ["app/popup.js"]
+  },
+  
+  "permissions":[
+    "tabs",
+    "http://pluralsight.com/*",
+    "<all_urls>",
+    "*://*/*",
+    "http://*/",
+    "https://*/",
+    "https://btcjam.com/*",
+    "webRequest"
+  ]
+}

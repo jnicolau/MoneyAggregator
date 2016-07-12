@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head >
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+    <div id="page">
+        <header class="container">
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <!--Change title here-->
+                        <a class="navbar-brand" href="https://drive.google.com/drive/u/0/folders/0B8vTnqrjQaCvRkI2LUZRZm9vVEU" target="_blank">Expenses Report</a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="nav active"><a href="#applications">Applications</a></li>
+                            <li class="nav"><a href="#accounts">Settings</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!--Body -->
+        <section id="body" class="container" ng-controller="mainController as main">
+            <!--Main-->
+            <section id="main">
+                <br>
+                <div ng-view></div>
+
+            </section>
+        </section>
+        <!--<hr>-->
+        <!--<object type="application/x-shockwave-flash" data="http://files.streamroot.io/release/latest/wrappers/jwplayer/6.8/jwplayer.srflash.swf" width="100%" height="100%" bgcolor="#000000" id="streamrootPlayer" name="streamrootPlayer" tabindex="0" class=" swfPrev-beforeswfanchor0 swfNext-afterswfanchor0"><param name="allowfullscreen" value="true"><param name="allowscriptaccess" value="always"><param name="seamlesstabbing" value="true"><param name="wmode" value="opaque"></object>-->
+        <hr>
+        <footer class="container">
+            2015 @Joao Oliveira
+        </footer>
+    </div>
+
+    <!--Libraries-->
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/angular-route/angular-route.min.js"></script>
+    <script src="lib/ral.min.js"></script>
+    <script src="lib/object-traverse.js"></script>
+    <script src="app/reframer.js"></script>
+    <!--Apps-->
+    <script src="app/app.js"></script>
+    <script src="app/payees.js"></script>
+    <script src="app/services/airtricity.js"></script>
+    <script src="app/services/virgin-media.js"></script>
+    <script src="app/services/aib.js"></script>
+
+
+</body>
+</html>

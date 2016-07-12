@@ -1,0 +1,31 @@
+<div class="media">
+    <div class="media-left">
+        <a href="https://onlinebanking.aib.ie/inet/roi/login.htm?" target="_blank">
+            <img ng-src="{{payee.logoUrl}}" class="media-object img-circle profile-img">
+        </a>
+    </div>
+    <div class="media-body">
+        <!--<h2 class="media-heading">{{payee.name}}</h2>-->
+        <div ng-if="!payee.loaded">
+            <button type="button" class="btn btn-primary" ng-click="payee.load()">Load</button>
+        </div>
+        <div ng-if="payee.loaded">
+            <table class="table table-condensed">
+                <tr>
+                    <th class="checkbox-column"></th>
+                    <th class="date-column">Date</th>
+                    <th>Description</th>
+                    <th>Amount</th>
+                    <th>Category</th>
+                </tr>
+                <tr ng-repeat="expense in payee.expenses">
+                    <td><input type="checkbox"></td>
+                    <td>{{expense.Date | date : 'dd-MM-yyyy'}}</td>
+                    <td>{{expense.Description}}</td>
+                    <td>{{expense.Amount | currency : "€"}}</td>
+                    <td>{{expense.Category}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
