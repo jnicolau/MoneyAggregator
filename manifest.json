@@ -1,12 +1,12 @@
 {
   "manifest_version":2,
-  "name":"Facilitator",
-  "description":"For now it only reads Airtricity bills",
+  "name":"Money Aggregator",
+  "description":"Aggregate multiple bank accounts under the same app",
   "version":"0.1",
   "author": "Joao Oliveira",
 
   "browser_action": {
-    "default_title": "Facilitator",
+    "default_title": "Money Aggregator",
     "default_icon": "icon.png"
   },
 
@@ -22,6 +22,7 @@
     "http://*/",
     "https://*/",
     "https://btcjam.com/*",
-    "webRequest"
+    "webRequest",
+    "webNavigation"
   ]
 }

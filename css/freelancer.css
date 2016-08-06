@@ -1,0 +1,97 @@
+﻿               .test {
+                   width: 100%;
+                   min-height: 340px;
+                   background: #999;
+               }
+
+               #sideBar {
+                   background: #f5f5f5;
+                   border-radius: 5px;
+                   padding: 15px;
+                   border: 1px solid #bbb;
+                   width: 250px;
+               }
+
+               #sideBar .panel-group{
+                   padding-left: 0;
+                   list-style-type:none;
+               }
+
+               .container-fluid {
+                   margin: 15px;
+               }
+
+               .panel-default {
+                   margin-top: 15px;
+               }
+
+               .navbar-default .navbar-nav > li > a {
+                   margin-right: 10px;
+                   background: #fff;
+                   border-radius: 5px;
+                   font-size: 26px;
+                   border: 1px solid #999;
+                   color: #000;
+               }
+
+               .navbar-default .navbar-brand {
+                   font-size: 40px;
+                   font-weight: bold;
+                   color: #000;
+               }
+
+               .small-menu a {
+                   width: 100%;
+                   border: 1px solid #999;
+                   display: block;
+                   padding: 10px;
+                   text-align: center;
+                   color: #999;
+                   font-size: 20px;
+               }
+
+               .panel-body .col-xs-4 {
+                   text-align: center;
+                   padding: 0 5px;
+               }
+
+                   .panel-body .col-xs-4 span {
+                       /*background: #fff;*/
+                       /*border-radius: 5px;*/
+                       /*border: 1px solid #999;*/
+                       /*padding: 12px 4px;*/
+                       margin: 0 auto;
+                       width: 100%;
+                       font-size: 36px;
+                       color: #000;
+                   }
+
+               .panel-title a {
+                   width: 100%;
+                   border: 1px solid #999;
+                   display: block;
+                   padding: 10px;
+                   text-align: center;
+                   color: #999;
+                   font-size: 20px;
+               }
+
+               .panel-heading {
+                   padding: 0;
+               }
+
+               .switch-buttons {
+                   text-align: right;
+                   margin-bottom: 0;
+                   padding-top: 20px;
+               }
+
+               .actives a{
+                   background: #777;
+                   color: #fff;
+                   text-decoration: none;
+               }
+
+               #content{
+                   width: calc(100% - 250px);
+               }

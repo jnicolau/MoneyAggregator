@@ -1,36 +1,3 @@
-/*
- * IE Fixes
- */
-body {
-  padding-top: 50px;
-}
-html,
-body {
-  overflow-y: visible;
-}
-/* Business Card Css */
-.business-card {
-  border: 1px solid #cccccc;
-  background: #f8f8f8;
-  padding: 10px;
-  border-radius: 4px;
-  margin-bottom: 10px;
-}
-.business-card .profile-img {
-  max-height: 120px;
-  max-width: 120px;
-  background: white;
-}
-.business-card .grey {
-  color: #666666;
-  font-size: 17px;
-}
-.business-card a {
-  font-size: 16px;
-}
-.business-card .checkbox-column {
-  width: 15px;
-}
-.business-card .date-column {
-  width: 90px;
+.panel-heading:hover {
+  background-color: #dfdfdf !important;
 }
