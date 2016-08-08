@@ -119,7 +119,9 @@
                                                             senderTabId: currentTab.id,
                                                             isAuthenticated: account.isAuthenticated,
                                                             timeRange: account.timeRange,
-                                                            loading: account.loading
+                                                            loading: account.loading,
+                                                            demoMode: me.demoMode,
+                                                            account: account
                                                         });
 
                                                 });
@@ -265,7 +267,7 @@
 
                         // If it's loading
                         if (account.loading) {
-                            chrome.tabs.sendMessage(account.openedTabId, {type: 'load'});
+                            chrome.tabs.sendMessage(account.openedTabId, {type: 'load', account: account});
                         }
 
                         $scope.$apply();

@@ -17,6 +17,11 @@ var messageHandler = function(message) {
     switch (message.type) {
         case "tabId":
             context = message;
+            if (context.demoMode && window.location.pathname === "/inet/roi/login.htm") {
+                $(function() {
+                    $("#regNumber_id").attr("type", "password");
+                });
+            }
             break;
 
         case "load":
@@ -127,7 +132,7 @@ $("body").ready(function(){
 
         // If loading fetch statements
         if (context.loading === true) {
-            fetchStatements();
+            fetchStatements(context.account);
         }
 
         // It's online!: inform parent tab
