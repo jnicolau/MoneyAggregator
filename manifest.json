@@ -15,17 +15,12 @@
   },
 
   "background": {
-    "scripts": ["app/popup.js"]
+    "scripts": ["app/start.js"]
   },
   
   "permissions":[
     "tabs",
-    "http://pluralsight.com/*",
-    "<all_urls>",
-    "*://*/*",
-    "http://*/",
-    "https://*/",
-    "https://btcjam.com/*",
+    "https://onlinebanking.aib.ie/*",
     "webRequest",
     "webNavigation"
   ]
