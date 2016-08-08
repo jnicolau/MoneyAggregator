@@ -12,15 +12,16 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href=>
-                        <span class="glyphicon glyphicon-paste"></span>
-                    </a>
+                    <button type="button" class="btn btn-default btn-lg" ng-click="dashboard.exportStatements()"
+                            title="Save selected as CSV" aria-label="Save selected/all as CSV" >
+                        <span class="glyphicon glyphicon-floppy-save"></span>
+                    </button>
                 </li>
-                <li>
-                    <a href>
-                        <span class="glyphicon glyphicon-menu-hamburger"></span>
-                    </a>
-                </li>
+                <!--<li>-->
+                    <!--<button class="btn btn-default" ng-click="" ara-label="Center Align">-->
+                        <!--<span class="glyphicon glyphicon-menu-hamburger"></span>-->
+                    <!--</button>-->
+                <!--</li>-->
             </ul>
         </div>
     </div>
@@ -51,34 +52,46 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-xs-4">
-                                    <button class="btn btn-default" ng-click="dashboard.mock(account)" ara-label="Center Align">
-                                        <span class="glyphicon glyphicon-th-list"></span>
-                                    </button>
-                                </div>
-                                <div class="col-xs-4">
                                     <button class="btn btn-default" ng-click="dashboard.load(account)"
-                                            ara-label="Center Align">
-                                        <span class="glyphicon glyphicon-download-alt"></span>
+                                            ng-attr-title="Download last {{account.timeRange}} months" ng-attr-aria-label="Load last {{account.timeRange}} months">
+                                        <span class="glyphicon glyphicon-cloud-download"></span>
                                     </button>
                                 </div>
                                 <div class="col-xs-4">
-                                    <button class="btn btn-default" ng-click="dashboard.deleteStatements(account)" ara-label="Center Align">
+                                    <button class="btn btn-default" ng-click="dashboard.exportStatements(account)"
+                                            title="Save as CSV" aria-label="Save as CSV">
+                                        <span class="glyphicon glyphicon-floppy-save"></span>
+                                    </button>
+                                </div>
+                                <div class="col-xs-4">
+                                    <button class="btn btn-default" ng-click="dashboard.deleteStatements(account)"
+                                            title="Discard statements" aria-label="Discard statements">
                                         <span class="glyphicon glyphicon-erase"></span>
                                     </button>
                                 </div>
                                 <div class="col-xs-12">
                                     <p class="switch-buttons">
-                                    <span class="panel panel-default"
-                                         ng-show="account.statements.length > 0"
-                                          style="float: left; padding:5px 10px 5px 10px; margin: 0px;"
-                                         >{{account.statements.length}} <span style="font-size: xx-small;">statements</span></span>
-
-                                    <input switch-change="dashboard.switchAccount(account)"
+                                        <span class="panel panel-default"
+                                             ng-show="account.statements.length"
+                                              style="float: left; padding:3px 10px 5px 10px; margin: 0px;"
+                                             >{{account.statements.length}} <span style="font-size: xx-small;">statements</span></span>
+                                        <select class="form-control" style="float: left;width:100px; height: 30px;"
+                                                ng-model="account.timeRange" convert-to-number
+                                                ng-show="account.statements.length === 0 && (!dashboard.demoMode || account.onlineStatus === 'on')">
+                                            <option value="1">Last month</option>
+                                            <option value="2">2 months</option>
+                                            <option value="3">3 months</option>
+                                            <option value="6">6 months</option>
+                                            <option value="12">12 months</option>
+                                        </select>
+                                        <input switch-change="dashboard.switchAccount(account)"
                                                switch-click="dashboard.switchAccountOnClick(account)"
                                                switch-handle-width="25px"
+                                               switch-size="small"
                                                bs-switch type="checkbox"
                                                ng-model="account.onlineStatus"
-                                               ng-true-value="'on'" ng-false-value="'off'">
+                                               ng-true-value="'on'" ng-false-value="'off'"
+                                               title="Online/offline" aria-label="Online/offline"">
                                     </p>
                                 </div>
                             </div>
@@ -86,6 +99,16 @@
                     </div>
                 </li>
             </ul>
+
+            <div class="switch-demo">
+                <label>Demo</label>&nbsp;
+                <input switch-handle-width="25px"
+                       switch-size="mini"
+                       bs-switch type="checkbox"
+                       ng-model="dashboard.demoMode"
+                       title="Demo mode will use fake data" aria-label="Demo mode will use fake data">
+            </div>
+
         </div>
         <!--Content-->
         <div class="col-xs-12 col-sm-9" id="content">
@@ -111,13 +134,38 @@
                              ng-style="{'background-color': statement.account.color}">{{statement.account.shortName}}</span></td>
                         <td>{{statement.Date | date : 'dd-MM-yyyy'}}</td>
                         <td>{{statement.Description}}</td>
-                        <td>{{statement.Amount | currency : "€"}}</td>
+                        <td style="white-space:nowrap;">{{statement.Amount | currency : "€"}}</td>
                         <td>{{statement.Category}}</td>
                     </tr>
                 </tbody>
             </table>
-            <h4 ng-hide="dashboard.statements.length"
-               style="text-align: center; color: #ddd; ">Click download button to view statements</h4>
+            <div ng-hide="dashboard.statements.length">
+                <h4 style="text-align: center; color: #ddd; ">Don't know where to start?<br/>Turn on "Demo" mode and click the cloud button<br/><br/></h4>
+                <p style="text-align: justify; color: #716b7a;">Money Aggregator never stores or shares your data.
+                    The only way you can get your data out is by exporting it to a CSV file, using the save button.
+                    <br/><br/>
+                    We only support personal <a href="http://personal.aib.ie/" target="_blank">AIB</a> bank accounts at the moment.<br/><br/>
+                    After exporting to CSV, you can then use it with:
+                    <ul style="color: #716b7a;">
+                        <li><a href="https://www.youneedabudget.com/" target="_blank">You Need A Budget</a> online app, makes you Gain Total Control of Your Money, paying off debt, saving more money, and breaking the paycheck cycle.
+                            <br/><br/>
+                        </li>
+                        <li><a href="http://www.qlik.com/us/try-or-buy/" target="_blank">Qlik Sense® Desktop or Qlik Sense® Cloud</a>, a revolutionary free self-service application that will provide hi-tech visualization and discovery of your expenditures. You can download our Money Aggregator Qlik Sense app (<a href="include/Your Money Aggregator.qvf" download>here</a>) and then upload it into your cloud account, after use the Data Load Editor to upload your CSV file.
+                            <br/><br/>
+                            <div style="text-align: center">
+                                <img src="../include/Qlik_View_app.png"/>
+                            </div>
+                            <br/><br/>
+                        </li>
+                        <li><a href="https://products.office.com/en-ie/excel" target="_blank">Microsoft Excel</a> or <a href="https://www.google.ie/sheets/about/" target="_blank">Google Sheets</a>.</li>
+                    </ul>
+                </p>
+                <br/>
+                <div style="text-align: center">
+                    <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/IyI6dxWrWcc" frameborder="0" allowfullscreen></iframe>-->
+                </div>
+                <br/><br/>
+            </div>
         </div>
     </div>
 </div>

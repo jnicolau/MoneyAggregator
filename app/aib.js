@@ -24,7 +24,7 @@ var messageHandler = function(message) {
             if (window.location.pathname !== "/inet/roi/pfmspending.htm") {
                 $("#moneymanager_button_id").click();
             } else {
-                fetchStatements();
+                fetchStatements(message.account);
             }
             break;
     }
@@ -33,7 +33,7 @@ var messageHandler = function(message) {
 
 
 // Load data from API
-function fetchStatements() {
+function fetchStatements(account) {
     if (window.location.pathname === "/inet/roi/pfmspending.htm") {
         var headers = [{
             "name": "Accept",
@@ -63,7 +63,7 @@ function fetchStatements() {
         var today = new Date();
         var from = new Date(today);
         from.setDate(1);
-        from.setMonth(today.getMonth() - context.timeRange);
+        from.setMonth(today.getMonth() - account.timeRange);
         var to = new Date(today);
         to.setDate(1);
         to.setDate(to.getDate() - 1);

@@ -22,6 +22,7 @@
     "angular-timespan": "^0.0.1",
     "angular-bootstrap-switch": "^0.5.1",
     "bootstrap-switch": "^3.3.2",
-    "angular-ui-bootstrap": "^2.0.0"
+    "angular-ui-bootstrap": "^2.0.0",
+    "angular-papa-promise": "^0.0.3"
   }
 }

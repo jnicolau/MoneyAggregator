@@ -25,13 +25,10 @@
                    margin-top: 15px;
                }
 
-               .navbar-default .navbar-nav > li > a {
-                   margin-right: 10px;
-                   background: #fff;
+               .navbar-default .navbar-nav > li > button {
                    border-radius: 5px;
                    font-size: 26px;
                    border: 1px solid #999;
-                   color: #000;
                }
 
                .navbar-default .navbar-brand {
@@ -83,6 +80,12 @@
                .switch-buttons {
                    text-align: right;
                    margin-bottom: 0;
+                   padding-top: 20px;
+               }
+
+               .switch-demo {
+                   text-align: right;
+                   margin-bottom: 0;                   padding-top: 20px;
                    padding-top: 20px;
                }
 

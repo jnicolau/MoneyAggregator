@@ -1,12 +1,16 @@
 {
   "manifest_version":2,
-  "name":"Money Aggregator",
+  "name":"Your Money Aggregator",
   "description":"Aggregate multiple bank accounts under the same app",
-  "version":"0.1",
+  "version":"0.9",
   "author": "Joao Oliveira",
-
+  "icons": {
+    "16": "include/icon16.png",
+    "48": "include/icon48.png",
+    "128": "include/icon128.png"
+  },
   "browser_action": {
-    "default_title": "Money Aggregator",
+    "default_title": "Your Money Aggregator",
     "default_icon": "icon.png"
   },
 
